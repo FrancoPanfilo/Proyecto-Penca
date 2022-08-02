@@ -1,10 +1,10 @@
-
 class Penca {
     constructor(identificador){
     this.identificador=identificador,
     this.fixture=[],
     this.resultados=[],
-    this.usuarios=[]
+    this.usuarios=["usuario1"]
+    this.listaPencas=[]
 }
 IngresarPartido(a, b){
     let partido = new Partidos 
@@ -46,7 +46,9 @@ constructor(penca,usuario){
     this.usuario=usuario,
     this.fixture= copiarArr(penca.fixture),
     this.puntos = 0
-}
+    
+    }
+
 
 ConteoPuntos(penca){
     this.puntos = contarPuntos(penca,this)
@@ -59,8 +61,16 @@ IngresarPrediccion(){
     }
     this.fixture[i].escribirPartido()
     let a = prompt(`Ingrese los goles de ${this.fixture[i].team1}`)
+    while ((!(a<100 && a>-1))||a==""){
+        alert("Cantidad de goles erronea")
+        a = prompt(`Ingrese los goles de ${this.fixture[i].team1}`)
+    }
     this.fixture[i].goles1=a
     let b = prompt(`Ingrese los goles de ${this.fixture[i].team2}`)
+    while ((!(b<100 && b>-1))||b==""){
+        alert("Cantidad de goles erronea")
+        b = prompt(`Ingrese los goles de ${this.fixture[i].team2}`)
+    }
     this.fixture[i].goles2=b
 }
 
@@ -87,81 +97,4 @@ constructor(email,contraseña,nombre){
     this.id=nombre,
     this.pencasActivas=[]
 }
-
 }
-
-function copiarArr(arreglo){
-let copiaFix =[]
-for (let i=0; i<arreglo.length;i++){
-    let copiaPar = new Partidos 
-    copiaPar = Object.assign({},arreglo[i])
-    let copia = new Partidos(copiaPar.team1,copiaPar.goles1,copiaPar.team2,copiaPar.goles2)
-    copiaFix.push(copia)
-}
-return copiaFix
-}
-
-function puntos(a1,b1,a2,b2){
-if((a1!="-")&&(b1!="-")&&(a2!="-")&&(b2!="-")){
-    if ((a1==a2)&&(b1==b2)){
-        return 8
-    } else if ((a1-b1)==(a2-b2)){
-        return 5
-    }       else if (((a1<b1)&&(a2<b2))||((a1>b1)&&(a2>b2))){
-                return 3
-                } else {
-                     return 0
-     }
-} else {
-return 0
-}
-}
-
-
-
-function contarPuntos(penca,pre){
-let contador =0
-for(let i=0 ; i<penca.fixture.length;i++){
-    contador = contador + puntos(penca.resultados[i].goles1 ,penca.resultados[i].goles2 , pre.fixture[i].goles1 ,  pre.fixture[i].goles2)
-}
-return contador
-}
-
-const prueba = new Penca("Penca Mundial - Grupo A")
-
-prueba.IngresarPartido("Senegal","Holanda")
-prueba.IngresarPartido("Catar","Ecuador")
-prueba.IngresarPartido("Catar","Senegal")
-prueba.IngresarPartido("Holanda","Ecuador")
-prueba.IngresarPartido("Ecuador","Senegal")
-prueba.IngresarPartido("Holanda","Catar")
-
-
-
-
-
-prueba.IngresarResultado(2,1)
-prueba.IngresarResultado(5,1)
-prueba.IngresarResultado(0,1)
-prueba.IngresarResultado(1,3)
-prueba.IngresarResultado(2,1)
-prueba.IngresarResultado(2,2)
-
-let nombre = prompt("Ingrese su nombre de usuario")
-const miPenca = new UnaPenca (prueba,nombre)
-
-
-miPenca.IngresarPrediccion()
-miPenca.IngresarPrediccion()
-miPenca.IngresarPrediccion()
-miPenca.IngresarPrediccion()
-miPenca.IngresarPrediccion()
-miPenca.IngresarPrediccion()
-
-console.log(prueba.resultados)
-console.log(miPenca.fixture)
-miPenca.ConteoPuntos(prueba)
-console.log(miPenca)
-
-
-
