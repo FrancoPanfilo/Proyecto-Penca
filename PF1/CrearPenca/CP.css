@@ -1,0 +1,50 @@
+main{
+    height: 80%;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 88%;
+    justify-content: space-around;
+    align-content: center;
+}
+.formulario .dato input{
+    width: 100%;
+}
+
+.formulario input{
+    width: 50%;
+    margin: auto;
+}
+.idPenca{
+    text-align: center;
+    display: flex;
+    justify-items: center;
+}
+
+.margen{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.formulario label{
+    color: white;
+}
+
+.formulario .fila{
+    margin-bottom: 2rem;
+}
+
+.partidos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#Fixture{
+    width:80%;
+}
+
+h3{
+    color:white;
+}
