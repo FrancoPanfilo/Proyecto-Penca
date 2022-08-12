@@ -43,8 +43,33 @@ main{
 
 #Fixture{
     width:80%;
+    background-color: rgb(5, 5, 79);
+    text-align: center;
+    line-height: 2.5rem;
+}
+#Fixture th{
+    width:20%;
+}
+#Fixture th:first-child{
+    width:2%;
 }
 
+#Fixture th:nth-child(2){
+    width:18%;
+}
+#Fixture th:nth-child(2) , td:nth-child(2){
+    text-align: right;
+}
+#Fixture th:nth-child(6) , td:nth-child(6){
+    text-align: left;
+}
 h3{
     color:white;
+}
+
+#tituloTabla{
+    width: 80%;
+    background-color: rgb(0, 0, 32);
+    margin-top: 1rem;
+    text-align: center;
 }
