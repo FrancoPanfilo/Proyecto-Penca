@@ -15,9 +15,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image:url("https://images.pexels.com/photos/235992/pexels-photo-235992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-color: #262421;
+    font-family: "Montserrat",sans-serif;
 }
-
 main {
     display: flex;
     flex-direction: column;
@@ -33,7 +33,41 @@ div.cabeza {
     align-items: center;
     padding:0.7rem 1rem;
     border-radius: 1rem;
-    background-color: rgb(168, 195, 220);
+    background-color: #1d1d1a;
+}
+
+.Esconder{
+    display:none;
+}
+
+.Mostrar{
+    display: flex;
+}
+
+#sesionIniciada{
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-abrir-modal2{
+    margin-left: 0.5rem;
+}
+
+.btn {
+    background-color: green;
+    border: none;
+}
+
+.btn:hover{
+    background-color: green;
+}
+
+.cancelar{
+    background-color: rgb(255, 0, 0);
+}
+
+.cancelar:hover{
+    background-color: red;
 }
 
 .Yfoto {
@@ -58,7 +92,7 @@ div .navs {
     justify-content: space-around;
     flex-grow: 1.5;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-size: 3vh;
 }
 
@@ -93,6 +127,7 @@ div nav a.enlace:hover {
 .cuerpo {
     width: 70%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 3rem;
     border-radius: 1rem;
@@ -101,9 +136,15 @@ div nav a.enlace:hover {
 
 .opcion {
     flex-grow: 1;
+    flex-basis: 50%;
     position: relative;
     text-align: center;
     opacity: 1;
+}
+
+.mispencas{
+    flex-basis: 65%;
+    flex-grow: 0;
 }
 
 .descripcion {
@@ -114,7 +155,6 @@ div nav a.enlace:hover {
     left: 0rem;
     color: rgb(255, 242, 242);
     opacity: 1.0;
-    font-weight: bold;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -148,14 +188,18 @@ div nav a.enlace:hover {
     border-radius: 1rem 0rem 0rem 1rem;
 }
 
-.opcion:last-child, #ft2, #f2{
+.opcion:nth-child(2), #ft2, #f2{
     border-radius: 0rem 1rem 1rem 0rem;
 }
 
+.opcion:last-child, #ft3, #f3{
+    border-radius: 0 0 1rem 1rem;
+}
+
 .pie {
-    background-color: rgb(168, 195, 220);
+    background-color: #1d1d1a;
     width: 100%;
-    border-top: 0.13rem rgb(103, 86, 255) solid;
+    border-top: 0.13rem orange solid;
     align-self: flex-end;
     flex: 0;
     margin-top: auto;
@@ -187,6 +231,10 @@ div nav a.enlace:hover {
         width: 100%;
         border-radius: 0;
     }
+
+    #cerrarSesion ,#btn-abrir-modal{
+        font-size: 2.0vh;
+    }
 }   
 
 @media (max-width:650px){
@@ -200,17 +248,28 @@ div nav a.enlace:hover {
         flex-basis:100%
     }
 
-    .Yfoto .titulo{
-        font-size: 5vh;
+    .descripcion h1{
+        font-size: 3.0vh;
+    }
+
+    .descripcion p{
+        font-size: 2.0vh;
     }
     div .navs {
-        font-size: 1.3vh;
+        font-size: 1.7vh;
     }
 }
 
 @media (max-width:450px){
-    .verficacion .btn {
-        font-size: 1vh !important;
-        margin-left:0.8rem;
+    .verficacion .btn ,#cerrarSesion{
+        font-size: 1.5vh !important;
+    }
+
+    .descripcion h1{
+        font-size: 2.0vh;
+    }
+
+    .descripcion p{
+        font-size: 1.3vh;
     }
 }

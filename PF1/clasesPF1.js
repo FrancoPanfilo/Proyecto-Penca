@@ -1,9 +1,22 @@
+class ServidorPencas{
+    constructor(){
+        this.pencas=[]
+    }
+}
+
+class ServidorUsuarios{
+    constructor(){
+        this.usuarios=[]
+    }
+}
+
 class Penca {
-    constructor(identificador){
+    constructor(identificador,creador){
     this.identificador=identificador,
     this.fixture=[],
     this.resultados=[],
-    this.usuarios=["usuario1"]
+    this.usuarios=["invitado"]
+    this.creador=creador
     this.listaPencas=[]
 }
 IngresarPartido(a, b){
@@ -91,10 +104,9 @@ escribirPartido(){
 }
 
 class Usuarios{
-constructor(email,contraseña,nombre){
-    this.email=email,
-    this.contraseña=contraseña,
+constructor(nombre,contraseña){
     this.id=nombre,
+    this.contraseña=contraseña,
     this.pencasActivas=[]
 }
 }
