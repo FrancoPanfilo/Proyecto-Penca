@@ -95,7 +95,7 @@ tablaPenca.addEventListener("click",()=>{
                                         <td>${users.puntos}</td>
                                         <td><button type="button" class="btn" id="botonVer${indice}">Ver Predicciones</button></td>
                                     </tr>`
-        agregarElemento.setAttribute("id",`filaTabla${indice}`)
+       // agregarElemento.setAttribute("id",`filaTabla${indice}`)
         Resultados.appendChild(agregarElemento)
         indice=indice+1
 })
@@ -148,7 +148,7 @@ fixturePenca.addEventListener("click",()=>{
                                                                 <td>${users.goles2}</td>
                                                                 <td>${users.team2}</td>
                                                             </tr>`
-                                agregarElemento.setAttribute("id",`filaTabla${indice}`)
+                             //   agregarElemento.setAttribute("id",`filaTabla${indice}`)
                                 Resultados.appendChild(agregarElemento)
                                 indice=indice+1
 })

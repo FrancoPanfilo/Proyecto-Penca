@@ -1,14 +1,14 @@
 // Inicializo el array lista de usuarios
 let servidorUsuarios = JSON.parse(localStorage.getItem("Servidor Usuarios"))
 if (servidorUsuarios){
-    console.log("Ya habia una lista de usuarios");
+   // console.log("Ya habia una lista de usuarios");
     servidorUsuarios = servidorUsuarios
 }else{
     servidorUsuarios = new ServidorUsuarios()
     let usuarioBase = new Usuarios("invitado","invitado")
     servidorUsuarios.usuarios =[usuarioBase]
     localStorage.setItem("Servidor Usuarios",JSON.stringify(servidorUsuarios))
-    console.log("Se creo una lista de usuarios");
+   // console.log("Se creo una lista de usuarios");
 }
 
 
@@ -105,10 +105,10 @@ cerrarSesion.addEventListener("click",()=>{
 let user = JSON.parse(localStorage.getItem("Usuario"))
 
 if (user){
-   console.log("hay user")
+   //console.log("hay user");
 }else{
     user = new Usuarios("invitado","invitado")
-    console.log("no hay user")
+    //console.log("No hau user");
 }
 
 if (user.id!="invitado"){
