@@ -60,7 +60,7 @@ let pantalla = document.getElementById(`pantalla${i}`)
 
 tablaPenca.addEventListener("click",()=>{
     pantalla.innerHTML=`
-    <table id="Resultados${i}"class="tablaPantalla table-hover table-dark">
+    <table id="Puestos${i}"class="tablaPantalla table-hover table-dark">
     <thead>
       <tr>
         <th scope="col">Puesto</th>
@@ -78,14 +78,12 @@ tablaPenca.addEventListener("click",()=>{
     // Busco la Penca
     let RPenca = JSON.parse(localStorage.getItem("Pencas Predefinidas"))
     let resultados
-    for (let p=0;p<misPencas.length;p++){
         for (let q =0;q<RPenca.pencas.length;q++){
-            if (misPencas[p].identificador==RPenca.pencas[q].identificador){
+            if (misPencas[i].identificador==RPenca.pencas[q].identificador){
                 resultados=RPenca.pencas[q].listaPencas
             }
         }
-    }
-    let Resultados = document.getElementById(`Resultados${i}`)
+    let Resultados = document.getElementById(`Puestos${i}`)
     let indice = 1
     resultados.forEach((users) => {
         let agregarElemento = document.createElement("tr")
@@ -93,9 +91,9 @@ tablaPenca.addEventListener("click",()=>{
                                         <td>${indice}</td>
                                         <td>${users.usuario}</td>
                                         <td>${users.puntos}</td>
-                                        <td><button type="button" class="btn" id="botonVer${indice}">Ver Predicciones</button></td>
+                                        <td><button type="button" class="btn" id="${i}botonVer${indice}">Ver Predicciones</button></td>
                                     </tr>`
-       // agregarElemento.setAttribute("id",`filaTabla${indice}`)
+        //agregarElemento.setAttribute("id",`Puestos${indice}`)
         Resultados.appendChild(agregarElemento)
         indice=indice+1
 })
@@ -136,7 +134,7 @@ fixturePenca.addEventListener("click",()=>{
                                     }
                                 }
                             }
-                            let Resultados = document.getElementById(`Resultados${i}`)
+                            let Resultados = document.getElementById(`${i}Resultados${i}`)
                             let indice = 1
                             resultados.forEach((users) => {
                                 let agregarElemento = document.createElement("tr")
@@ -148,7 +146,7 @@ fixturePenca.addEventListener("click",()=>{
                                                                 <td>${users.goles2}</td>
                                                                 <td>${users.team2}</td>
                                                             </tr>`
-                             //   agregarElemento.setAttribute("id",`filaTabla${indice}`)
+                             //   agregarElemento.setAttribute("id",`${i}filaTabla${indice}`)
                                 Resultados.appendChild(agregarElemento)
                                 indice=indice+1
 })
@@ -186,29 +184,32 @@ mipenca.addEventListener("click",()=>{
                                         <td>VS</td>
                                         <td>${users.goles2}</td>
                                         <td>${users.team2}</td>
-                                        <td ><button type="button" class="btn" id="botonPrediccion${indice}">Hacer Prediccion</button></td>
+                                        <td ><button type="button" class="btn" id="${i}botonPrediccion${indice}">Hacer Prediccion</button></td>
                                     </tr>`
-        agregarElemento.setAttribute("id",`filaTabla${indice}`)
+        agregarElemento.setAttribute("id",`${i}filaTabla${indice}`)
         tablaFixture.appendChild(agregarElemento)
 
 // Funcionalidad para cambiar los resultados
-        let hacerPrediccion = document.getElementById(`botonPrediccion${indice}`)
-        let partidoACambiar = document.getElementById(`filaTabla${indice}`)
+        let hacerPrediccion = document.getElementById(`${i}botonPrediccion${indice}`)
+        let partidoACambiar = document.getElementById(`${i}filaTabla${indice}`)
         let indice2 = indice
+
+
+// BUG si hago prediccion en el primer elemento de la tabla , osea el ultimo elemento de mipENCA se buguean los botones de otras pencas
         hacerPrediccion.addEventListener("click",()=>{
             partidoACambiar.innerHTML=  `
                                         <td>${indice2}</td>
                                         <td>${users.team1}</td>
-                                        <td><input  class="inputs" placeholder="${users.goles1}" id="inputGoles1${indice2}"></td>
+                                        <td><input  class="inputs" placeholder="${users.goles1}" id="${i}inputGoles1${indice2}"></td>
                                         <td>VS</td>
-                                        <td><input class="inputs" placeholder="${users.goles2}" id="inputGoles2${indice2}"></td>
+                                        <td><input class="inputs" placeholder="${users.goles2}" id="${i}inputGoles2${indice2}"></td>
                                         <td>${users.team2}</td>
-                                        <td ><button type="button" class="btn" id="botonGuardar${indice2}">Guardar Prediccion</button></td>
+                                        <td ><button type="button" class="btn" id="${i}botonGuardar${indice2}">Guardar Prediccion</button></td>
                                         `
-            let botonGuardar = document.getElementById(`botonGuardar${indice2}`)
+            let botonGuardar = document.getElementById(`${i}botonGuardar${indice2}`)
             botonGuardar.addEventListener("click",()=>{
-                let inputGoles1 = document.getElementById(`inputGoles1${indice2}`).value; 
-                let inputGoles2 = document.getElementById(`inputGoles2${indice2}`).value; 
+                let inputGoles1 = document.getElementById(`${i}inputGoles1${indice2}`).value; 
+                let inputGoles2 = document.getElementById(`${i}inputGoles2${indice2}`).value; 
                 users.goles1 = inputGoles1
                 users.goles2 = inputGoles2
                 if (((!(users.goles1<100 && users.goles1>-1))||users.goles1=="")||((!(users.goles2<100 && users.goles2>-1))||users.goles2=="")){
@@ -223,7 +224,7 @@ mipenca.addEventListener("click",()=>{
                                                 <td>VS</td>
                                                 <td>${users.goles2}</td>
                                                 <td>${users.team2}</td>
-                                                <td ><button type="button" class="btn" id="botonPrediccion${indice2}">Hacer Prediccion</button></td>
+                                                <td ><button type="button" class="btn" id="${i}botonPrediccion${indice2}">Hacer Prediccion</button></td>
                                             </tr>`
                                             let click = document.getElementById(`mipenca${i}`)
                                             // con esto redrescamos el modal
