@@ -1,5 +1,3 @@
 
 let misPencas = document.getElementById("MisPencas")
-if (user.pencasActivas.length<1){
-    misPencas.classList="Esconder"
-}
+user.pencasActivas.length==0 ? misPencas.classList="Esconder" : misPencas.classList="opcion mispencas"

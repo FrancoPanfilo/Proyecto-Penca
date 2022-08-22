@@ -18,11 +18,37 @@ for (let i=0;i<servidor.pencas.length;i++){
                 agregarElemento.className = "Esconder"
                 }
         }
+    agregarElemento.setAttribute("id",`penca${i}`)
     tabla.appendChild(agregarElemento)
     let elboton = document.getElementById(`boton${i}`)
     elboton.addEventListener("click",()=>{
-        unirsePenca(servidor.pencas[i],user)
-        elboton.className="Esconder"
-        location.reload();
-    })
-}
+        if (user.id =="invitado"){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Antes tienes que Registrarte!',
+                footer: '<a href="">Registrarme</a>'
+              })
+        }else {
+            unirsePenca(servidor.pencas[i],user)
+            elboton.className="Esconder"
+            let fila= document.getElementById(`penca${i}`)
+            fila.className="Esconder"
+            Toastify({
+                text: `Te uniste a la penca ${servidor.pencas[i].identificador} `,
+                duration: 3000,
+                destination: "../MisPencas/MP.html",
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+          }).showToast()
+          user=JSON.parse(localStorage.getItem("Usuario"))
+          let misPencas2 = document.getElementById("MisPencas2")
+          user.pencasActivas.length==0 ? misPencas2.classList="Esconder" : misPencas2.classList="enlace"
+    }}
+)}

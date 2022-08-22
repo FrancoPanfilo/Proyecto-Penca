@@ -38,11 +38,6 @@ function contarPuntos(penca,pre){
 
 function unirsePenca(penca,usuarioo){
     let usuario = usuarioo.id
-    console.log(usuario);
-    console.log(penca);
-    if (usuarioEnPenca(usuario,penca)){
-        alert("Usuario ya registrado")
-    }else {
         let unaPenca = new UnaPenca (penca,usuario)
         let user = JSON.parse(localStorage.getItem("Usuario"))
         user.pencasActivas.push(unaPenca)
@@ -55,23 +50,17 @@ function unirsePenca(penca,usuarioo){
                 penc.usuarios=[...penca.usuarios]
                 penc.listaPencas=[...penca.listaPencas]
                 localStorage.setItem("Pencas Predefinidas",JSON.stringify(servidor))
-                console.log(user);
                 actualizarUsuario(user)
             }
-        });
-    
-    
-}}
+        });   
+}
 
 // Actualizar usuario y en particular sus pencas en la base de datos LS
 
 function actualizarUsuario(usuario){
     let servidor = JSON.parse(localStorage.getItem("Servidor Usuarios"))
-    console.log(servidor);
     for (let i = 0;i<servidor.usuarios.length;i++){
         if (usuario.id == servidor.usuarios[i].id ){
-            console.log(servidor.usuarios[i].pencasActivas);
-            console.log(usuario.pencasActivas);
             servidor.usuarios[i].pencasActivas=usuario.pencasActivas
         }
     }
@@ -81,7 +70,7 @@ function actualizarUsuario(usuario){
 function usuarioEnPenca(usuario,penca){
     let condicion = false
     for (let i=0;i<penca.usuarios.length;i++){
-        if (penca.usuarios[i].id==usuario){
+        if (penca.usuarios[i].id==usuario.id){
             condicion = true
         }
     }

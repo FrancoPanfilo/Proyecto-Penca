@@ -17,72 +17,72 @@ grupoA.IngresarPartido("Holanda","Catar")
 
 let  grupoB= new Penca("Penca Mundial - Grupo B","FrancoPanfilo")
 
-grupoB.IngresarPartido("Senegal","Holanda")
-grupoB.IngresarPartido("Catar","Ecuador")
-grupoB.IngresarPartido("Catar","Senegal")
-grupoB.IngresarPartido("Holanda","Ecuador")
-grupoB.IngresarPartido("Ecuador","Senegal")
-grupoB.IngresarPartido("Holanda","Catar")
+grupoB.IngresarPartido("Inglaterra","Iran")
+grupoB.IngresarPartido("Estados Unidos","Gales")
+grupoB.IngresarPartido("Gales","Iran")
+grupoB.IngresarPartido("Inglaterra","Estados Unidos")
+grupoB.IngresarPartido("Iran","Estados Unidos")
+grupoB.IngresarPartido("Gales","Inglaterra")
 
 
 let  grupoC= new Penca("Penca Mundial - Grupo C","FrancoPanfilo")
 
-grupoC.IngresarPartido("Senegal","Holanda")
-grupoC.IngresarPartido("Catar","Ecuador")
-grupoC.IngresarPartido("Catar","Senegal")
-grupoC.IngresarPartido("Holanda","Ecuador")
-grupoC.IngresarPartido("Ecuador","Senegal")
-grupoC.IngresarPartido("Holanda","Catar")
+grupoC.IngresarPartido("Argentina","Arabia Saudita")
+grupoC.IngresarPartido("Mexico","Polonia")
+grupoC.IngresarPartido("Polonia","Arabia Saudita")
+grupoC.IngresarPartido("Argentina","Mexico")
+grupoC.IngresarPartido("Polonia","Argentina")
+grupoC.IngresarPartido("Arabia Saudita","Mexico")
 
 
 let  grupoD= new Penca("Penca Mundial - Grupo D","FrancoPanfilo")
 
-grupoD.IngresarPartido("Senegal","Holanda")
-grupoD.IngresarPartido("Catar","Ecuador")
-grupoD.IngresarPartido("Catar","Senegal")
-grupoD.IngresarPartido("Holanda","Ecuador")
-grupoD.IngresarPartido("Ecuador","Senegal")
-grupoD.IngresarPartido("Holanda","Catar")
+grupoD.IngresarPartido("Dinamarca","Tunez")
+grupoD.IngresarPartido("Francia","Australia")
+grupoD.IngresarPartido("Tunez","Australia")
+grupoD.IngresarPartido("Francia","Dinamarca")
+grupoD.IngresarPartido("Tunez","Francia")
+grupoD.IngresarPartido("Australia","Dinamarca")
 
 
 let  grupoE= new Penca("Penca Mundial - Grupo E","FrancoPanfilo")
 
-grupoE.IngresarPartido("Senegal","Holanda")
-grupoE.IngresarPartido("Catar","Ecuador")
-grupoE.IngresarPartido("Catar","Senegal")
-grupoE.IngresarPartido("Holanda","Ecuador")
-grupoE.IngresarPartido("Ecuador","Senegal")
-grupoE.IngresarPartido("Holanda","Catar")
+grupoE.IngresarPartido("Alemania","Japon")
+grupoE.IngresarPartido("España","Costa Rica")
+grupoE.IngresarPartido("Japon","Costa Rica")
+grupoE.IngresarPartido("España","Alemania")
+grupoE.IngresarPartido("Japon","España")
+grupoE.IngresarPartido("Costa Rica","Alemania")
 
 
 let  grupoF= new Penca("Penca Mundial - Grupo F","FrancoPanfilo")
 
-grupoF.IngresarPartido("Senegal","Holanda")
-grupoF.IngresarPartido("Catar","Ecuador")
-grupoF.IngresarPartido("Catar","Senegal")
-grupoF.IngresarPartido("Holanda","Ecuador")
-grupoF.IngresarPartido("Ecuador","Senegal")
-grupoF.IngresarPartido("Holanda","Catar")
+grupoF.IngresarPartido("Marruecos","Croacia")
+grupoF.IngresarPartido("Belgica","Canada")
+grupoF.IngresarPartido("Belgica","Marruecos")
+grupoF.IngresarPartido("Croacia","Canada")
+grupoF.IngresarPartido("Croacia","Belgica")
+grupoF.IngresarPartido("Canada","Marruecos")
 
 
 let  grupoG= new Penca("Penca Mundial - Grupo G","FrancoPanfilo")
 
-grupoG.IngresarPartido("Senegal","Holanda")
-grupoG.IngresarPartido("Catar","Ecuador")
-grupoG.IngresarPartido("Catar","Senegal")
-grupoG.IngresarPartido("Holanda","Ecuador")
-grupoG.IngresarPartido("Ecuador","Senegal")
-grupoG.IngresarPartido("Holanda","Catar")
+grupoG.IngresarPartido("Suiza","Camerun")
+grupoG.IngresarPartido("Brasil","Serbia")
+grupoG.IngresarPartido("Camerun","Serbia")
+grupoG.IngresarPartido("Brasil","Suiza")
+grupoG.IngresarPartido("Serbia","Suiza")
+grupoG.IngresarPartido("Camerun","Brasil")
 
 
 let  grupoH= new Penca("Penca Mundial - Grupo H","FrancoPanfilo")
 
-grupoH.IngresarPartido("Senegal","Holanda")
-grupoH.IngresarPartido("Catar","Ecuador")
-grupoH.IngresarPartido("Catar","Senegal")
-grupoH.IngresarPartido("Holanda","Ecuador")
-grupoH.IngresarPartido("Ecuador","Senegal")
-grupoH.IngresarPartido("Holanda","Catar")
+grupoH.IngresarPartido("Uruguay","Corea del Sur")
+grupoH.IngresarPartido("Portugal","Ghana")
+grupoH.IngresarPartido("Corea del Sur","Ghana")
+grupoH.IngresarPartido("Portugal","Uruguay")
+grupoH.IngresarPartido("Corea del Sur","Portugal")
+grupoH.IngresarPartido("Ghana","Uruguay")
 
 //cargar pencas al servidor de pencas 
 servidorLS.pencas.push(grupoA)
@@ -101,3 +101,5 @@ servidorLS.pencas.sort((a, b) => {
 servidorLS = JSON.stringify(servidorLS)
 localStorage.setItem("Pencas Predefinidas",servidorLS)
 }
+
+// Sugar sintax (por las dudas no borro lo demas) (no funco jajajajaj)

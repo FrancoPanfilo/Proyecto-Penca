@@ -115,3 +115,6 @@ if (user.id!="invitado"){
     cuenta.className = ("Esconder")
     sesionIniciada.className ="Mostrar"
 }
+
+let misPencas2 = document.getElementById("MisPencas2")
+user.pencasActivas.length==0 ? misPencas2.classList="Esconder" : misPencas2.classList="enlace"

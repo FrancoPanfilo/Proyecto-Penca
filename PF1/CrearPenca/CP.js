@@ -27,7 +27,7 @@ botonFijar.addEventListener("click",()=>{
         if ((pencasExistentes.pencas[i].identificador==id)||(id=="")){
             idDisponible=false
         }
-        i=i+1
+        i++
     }
     if (idDisponible==true){
             let idPenca=identificador.value
@@ -38,9 +38,15 @@ botonFijar.addEventListener("click",()=>{
             titulo.innerHTML=`<h3>${idPenca}</h3>`
     }else{
         if (identificador.value==""){
-            alert("Ingrese un identificador para su penca")
+            Swal.fire({
+                icon: 'error',
+                text: "Ingrese un identificador para su penca"
+              })
         }else{
-            alert("Identificador en uso")
+            Swal.fire({
+                icon: 'error',
+                text: "Identificador en uso"
+              })
         }
         identificador.value=""
     }
@@ -52,13 +58,29 @@ crearPartido.addEventListener("click",()=>{
     if (idDisponible){
         let team1 = equipo1.value
     let team2 = equipo2.value
-    if (team2==team1){
-        alert("Los equipos no pueden ser iguales")
-    }else if ((team1=="")||(team2=="")){
-        alert("Ingrese el nombre de los equipos")
+    if ((team1=="")||(team2=="")){
+        Swal.fire({
+            icon: 'error',
+            text: "Ingrese el nombre de los equipos"
+          })
+    }else if (team2==team1){
+        Swal.fire({
+            icon: 'error',
+            text: "Los equipos no pueden ser iguales"
+          })
     }else{
         nuevaPenca.IngresarPartido(team1,team2)
-        alert("El partido se asigno correctamente")
+        Toastify({
+            text: `Se agrego correctamente el partidio entre ${team1} y ${team2} `,
+            duration: 2000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+      }).showToast();
         equipo1.value=""
         equipo2.value=""
         // necesito imprimir esos datos en la tabla
@@ -76,7 +98,10 @@ crearPartido.addEventListener("click",()=>{
         tabla.appendChild(agregarElemento)
     }
     }else {
-        alert("Fije el identificador de la Penca")
+        Swal.fire({
+            icon: 'error',
+            text: "Fije el identificador de la Penca"
+          })
     }
     
 })
@@ -88,7 +113,11 @@ let crearPenca = document.getElementById("crearPenca")
 crearPenca.addEventListener("click",()=>{
     console.log(nuevaPenca);
     if (nuevaPenca.fixture.length<6){
-        alert("Agregue al menos 6 partidos")
+        Swal.fire({
+            icon: 'error',
+            title: 'Partidos insuficientes',
+            text: "Agregue al menos 6 partidos"
+          })
     }else{
         pencasExistentes.pencas.push(nuevaPenca)
         localStorage.setItem("Pencas Predefinidas",JSON.stringify(pencasExistentes))

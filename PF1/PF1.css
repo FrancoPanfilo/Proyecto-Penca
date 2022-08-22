@@ -176,6 +176,9 @@ div nav a.enlace:hover {
     cursor: pointer;
 }
 
+footer div a{
+    color: white;
+}
 @supports(object-fit: cover){
     .opcion img{
       width: 100%;
