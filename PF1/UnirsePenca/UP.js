@@ -29,7 +29,13 @@ for (let i=0;i<servidor.pencas.length;i++){
                 text: 'Antes tienes que Registrarte!',
                 footer: '<a href="">Registrarme</a>'
               })
-        }else {
+        }else if(usuarioEnPenca(user,servidor.pencas[i])){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ya estas unido a esta penca',
+              })
+        } else{
             unirsePenca(servidor.pencas[i],user)
             elboton.className="Esconder"
             let fila= document.getElementById(`penca${i}`)

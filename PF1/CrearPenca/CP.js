@@ -111,7 +111,6 @@ crearPartido.addEventListener("click",()=>{
 let crearPenca = document.getElementById("crearPenca")
 
 crearPenca.addEventListener("click",()=>{
-    console.log(nuevaPenca);
     if (nuevaPenca.fixture.length<6){
         Swal.fire({
             icon: 'error',

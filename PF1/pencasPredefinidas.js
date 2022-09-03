@@ -1,8 +1,7 @@
 let servidorLS
 if (servidorLS = localStorage.getItem("Pencas Predefinidas")){
-    console.log("Hay memoria anterior");
+    
 }else{
-    console.log("NO Hay memoria anterior");
 servidorLS = new ServidorPencas()
 
 let  grupoA= new Penca("Penca Mundial - Grupo A","FrancoPanfilo")

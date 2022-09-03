@@ -1,7 +1,14 @@
+
 main{
     height: 80%;
 }
 
+#idMostrar{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
 .formulario{
     display: flex;
     flex-direction: column;
@@ -20,7 +27,6 @@ main{
 .idPenca{
     text-align: center;
     display: flex;
-    justify-items: center;
 }
 
 .margen{
